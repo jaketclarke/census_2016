@@ -16,6 +16,14 @@ The third uses pandas to write to mysql - this is also database agnostic, and co
 
 *Make the build-the-tables bit also be database agnostic, probably by using the connection string definition option of csvkit
 
+*csvsql outputs decimal columns in a create statement in the form: `SA4_CODE_2016 DECIMAL NOT NULL`
+
+Mysql interprets DECIMAL as DECIMAL(10,0), thus this breaks the Average column on table 02 of the Census.
+
+This probably requires a patch to csvsql which I might do at some stage
+
+For the moment, this is why `monkey_patch_averages()` is there
+
 ### Requires
 
 Jupyter and Python3
