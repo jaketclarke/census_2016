@@ -12,7 +12,7 @@ The third uses pandas to write to mysql - this is also database agnostic, and co
 
 ### To Do
 
-Currently uses pymysql to execute the file and mysqldb to do the insert, this is silly, should normalise at some stage
+* Currently uses pymysql to execute the file and mysqldb to do the insert, this is silly, should normalise at some stage
 
 * Make the build-the-tables bit also be database agnostic, probably by using the connection string definition option of csvkit
 
@@ -23,6 +23,9 @@ Currently uses pymysql to execute the file and mysqldb to do the insert, this is
 	* This probably requires a patch to csvsql which I might do at some stage
 
 	* For the moment, this is why `monkey_patch_averages()` is there
+
+* the 'append' in Pandas to_sql method, combined with no primary key on the table, means if you run the insert several times, it will insert
+	* in future will add a 'truncate table' step
 
 ### Requires
 
