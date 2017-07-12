@@ -12,17 +12,17 @@ The third uses pandas to write to mysql - this is also database agnostic, and co
 
 ### To Do
 
-*Currently uses pymysql to execute the file and mysqldb to do the insert, this is silly, should normalise at some stage
+Currently uses pymysql to execute the file and mysqldb to do the insert, this is silly, should normalise at some stage
 
-*Make the build-the-tables bit also be database agnostic, probably by using the connection string definition option of csvkit
+* Make the build-the-tables bit also be database agnostic, probably by using the connection string definition option of csvkit
 
-*csvsql outputs decimal columns in a create statement in the form: `SA4_CODE_2016 DECIMAL NOT NULL`
+* csvsql outputs decimal columns in a create statement in the form: `SA4_CODE_2016 DECIMAL NOT NULL`
 
-Mysql interprets DECIMAL as DECIMAL(10,0), thus this breaks the Average column on table 02 of the Census.
+	* Mysql interprets `DECIMAL` as `DECIMAL(10,0)`, thus this breaks the Average column on table 02 of the Census.
 
-This probably requires a patch to csvsql which I might do at some stage
+	* This probably requires a patch to csvsql which I might do at some stage
 
-For the moment, this is why `monkey_patch_averages()` is there
+	* For the moment, this is why `monkey_patch_averages()` is there
 
 ### Requires
 
