@@ -10,6 +10,10 @@ The second is python code to execute mysql .sql files
 
 The third uses pandas to write to mysql - this is also database agnostic, and could be modified to write to a postgres or other database
 
+# Use
+
+`pipenv install`
+
 ### To Do
 
 * Currently uses pymysql to execute the file and mysqldb to do the insert, this is silly, should normalise at some stage
